@@ -62,6 +62,7 @@
 				  
 				var ctx = curtain.getContext("2d");
 
+				// curtain shadow
 				ctx.fillStyle = 'black';
 				ctx.beginPath();
 				ctx.moveTo(0,0);
@@ -102,6 +103,52 @@
 				ctx.arc(1340,70,20, Math.PI, Math.PI*2,true);
 				ctx.arc(1380,70,20, Math.PI, Math.PI*2,true);
 				ctx.arc(1420,70,20, Math.PI, Math.PI*2,true);
+				ctx.lineTo(1440,0)
+				ctx.lineTo(0,0)
+				ctx.fill();
+
+				// curtain
+				ctx.fillStyle = "rgb(190,58,0)";
+				ctx.beginPath();
+				ctx.moveTo(0,0);
+				ctx.lineTo(0,60);
+				ctx.arc(0,40,20, Math.PI/2, 2*Math.PI,true);
+				ctx.arc(40,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(80,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(120,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(160,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(200,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(240,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(280,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(320,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(360,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(400,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(440,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(480,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(520,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(560,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(600,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(640,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(680,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(720,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(760,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(800,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(840,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(880,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(920,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(960,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1000,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1040,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1080,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1120,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1160,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1200,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1240,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1280,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1320,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1360,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1400,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1440,40,20, Math.PI, Math.PI/2,true);
 				ctx.lineTo(1440,0)
 				ctx.lineTo(0,0)
 				ctx.fill();
