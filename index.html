@@ -21,18 +21,21 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
         
-        <canvas id="canvas" width="1866" height="684" style="float:left;z-index: -1;position:absolute;height:100%; width:100%">
+        <canvas id="background" width="1766" height="684" style="float:left;z-index: -1;position:absolute;height:100%; width:100%">
 	    	<p>This example requires a browser that supports the
 	    	<a href="http://www.w3.org/html/wg/html5/">HTML5</a> 
 	    	&lt;canvas&gt; feature.</p>
 	   	</canvas>
+	   	
+	   	<canvas id="curtain" width="1766" height="684" style="float:left;z-index: 2;position:absolute;">
+	   	</canvas>
 
-		<div style="z-index: 1;position:absolute;margin-left: 25%; margin-top: 7%; color:#3CBCFC; text-shadow:
+		<div style="z-index: 1;position:absolute;margin-left: 25%; margin-top: 7%; color:#3CBCFC;  letter-spacing:4px; text-shadow:
 		    5px 8px 0 #0000A8,  
 		    5px 8px 0 #0000A8,
 		    5px 8px 0 #0000A8,
 		    5px 8px 0 #0000A8;">
-			<span style="font-family: tlpsmb; font-size:90px; padding-left:140px;">J. PAULO</span>
+			<span style="font-family: tlpsmb; font-size:90px; padding-left:170px;">J. PAULO</span>
 			<br/>
 			<span style="font-family: tlpsmb; font-size:90px;">C. PANALIGAN</span>
 		</div>
@@ -52,18 +55,74 @@
         
         <script type="application/x-javascript">
 		    function draw() {
-		      var canvas = document.getElementById("canvas");
-		      if (canvas.getContext) {
-		        var ctx = canvas.getContext("2d");
+		      var background = document.getElementById("background");
+			  var curtain = document.getElementById("curtain");
+
+			  if (curtain.getContext) {
+				  
+				var ctx = curtain.getContext("2d");
+
+				ctx.fillStyle = 'black';
+				ctx.beginPath();
+				ctx.moveTo(0,0);
+				ctx.lineTo(0,70);
+				ctx.arc(20,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(60,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(100,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(140,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(180,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(220,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(260,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(300,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(340,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(380,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(420,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(460,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(500,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(540,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(580,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(620,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(660,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(700,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(740,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(780,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(820,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(860,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(900,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(940,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(980,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1020,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1060,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1100,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1140,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1180,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1220,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1260,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1300,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1340,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1380,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1420,70,20, Math.PI, Math.PI*2,true);
+				ctx.lineTo(1440,0)
+				ctx.lineTo(0,0)
+				ctx.fill();
+				
+			  }
+		      
+		      if (background.getContext) {
+
+			    var ctx = background.getContext("2d");
 		
 				// background
 		        ctx.fillStyle = "rgb(252,216,168)";
-		        ctx.fillRect (0, 0, canvas.width, canvas.height);
+		        ctx.fillRect (0, 0, background.width, background.height);
 		
 				// bottom background
 		        ctx.fillStyle = "rgb(0, 0, 0)";
-		        ctx.strokeStyle = "rgb(0, 0, 0)";
-		        ctx.fillRect (0, 600, canvas.width, 85);
+		        ctx.fillRect (0, 622, background.width, 85);
+
+		        // bottom background white bar		        
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (0, 628, background.width, 2);
 		        
 		        // checkerboard column 1
 		        ctx.fillStyle = "rgb(256, 256, 256)";
@@ -75,6 +134,9 @@
 		        // checckerboard column 2
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (40, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (40, 632, 45, 3);
 		        
 		        // checkerboard column 3
 		        ctx.fillStyle = "rgb(256, 256, 256)";
@@ -86,6 +148,9 @@
 		        // checkerboard column 4
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (125, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (125, 632, 45, 3);
 		        
 		        // checkerboard column 5
 		        ctx.fillStyle = "rgb(256, 256, 256)";
@@ -97,6 +162,9 @@
 		        // checkerboard column 6
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (210, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (210, 632, 45, 3);
 		        
 		        // checkerboard column 7
 		        ctx.fillStyle = "rgb(256, 256, 256)";
@@ -108,6 +176,9 @@
 		        // checkerboard column 8
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (295, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (295, 632, 45, 3);
 		        
 		        // checkerboard column 9
 		        ctx.fillStyle = "rgb(256, 256, 256)";
@@ -119,6 +190,9 @@
 		     	// checkerboard column 10
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (380, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (380, 632, 45, 3);
 		        
 		        // checkerboard column 11
 		        ctx.fillStyle = "rgb(256, 256, 256)";
@@ -126,6 +200,13 @@
 
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (425, 635, 40, 7);
+
+		     	// checkerboard column 12
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (465, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (465, 632, 45, 3);
 		        
 		        // checkerboard column 13
 		        ctx.fillStyle = "rgb(256, 256, 256)";
@@ -133,6 +214,13 @@
 
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (510, 635, 40, 7);
+
+		     	// checkerboard column 14
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (550, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (550, 632, 45, 3);
 		        
 		        // checkerboard column 15
 		        ctx.fillStyle = "rgb(256, 256, 256)";
@@ -140,6 +228,13 @@
 
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (595, 635, 40, 7);
+
+		     	// checkerboard column 16
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (635, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (635, 632, 45, 3);
 		        
 		        // checkerboard column 17
 		        ctx.fillStyle = "rgb(256, 256, 256)";
@@ -147,6 +242,13 @@
 
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (680, 635, 40, 7);
+
+		     	// checkerboard column 18
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (720, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (720, 632, 45, 3);
 		        
 		        // checkerboard column 19
 		        ctx.fillStyle = "rgb(256, 256, 256)";
@@ -154,6 +256,13 @@
 
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (765, 635, 40, 7);
+
+		     	// checkerboard column 20
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (805, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (805, 632, 45, 3);
 		        
 		        // checkerboard column 21
 		        ctx.fillStyle = "rgb(256, 256, 256)";
@@ -161,6 +270,13 @@
 
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (850, 635, 40, 7);
+
+		     	// checkerboard column 22
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (890, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (890, 632, 45, 3);
 		        
 		        // checkerboard column 23
 		        ctx.fillStyle = "rgb(256, 256, 256)";
@@ -168,6 +284,13 @@
 
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (935, 635, 40, 7);
+
+		     	// checkerboard column 24
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (975, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (975, 632, 45, 3);
 		        
 		        // checkerboard column 25
 		        ctx.fillStyle = "rgb(256, 256, 256)";
@@ -175,6 +298,13 @@
 
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1020, 635, 40, 7);
+
+		     	// checkerboard column 26
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1060, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1060, 632, 45, 3);
 		        
 		        // checkerboard column 27
 		        ctx.fillStyle = "rgb(256, 256, 256)";
@@ -182,62 +312,125 @@
 
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1105, 635, 40, 7);
+
+		     	// checkerboard column 28
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1145, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1145, 632, 45, 3);
 		        
-		        // checkerboard column 39
+		        // checkerboard column 29
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1190, 660, 40, 25);
 
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1190, 635, 40, 7);
+
+		     	// checkerboard column 30
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1230, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1230, 632, 45, 3);
 		        
-		        // checkerboard column 41
+		        // checkerboard column 31
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1275, 660, 40, 25);
 
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1275, 635, 40, 7);
+
+		     	// checkerboard column 32
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1315, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1315, 632, 45, 3);
 		        
-		        // checkerboard column 43
+		        // checkerboard column 33
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1360, 660, 40, 25);
 
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1360, 635, 40, 7);
+
+		     	// checkerboard column 34
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1400, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1400, 632, 45, 3);
 		        
-		        // checkerboard column 45
+		        // checkerboard column 35
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1445, 660, 40, 25);
 		        
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1445, 635, 40, 7);
+
+		     	// checkerboard column 36
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1485, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1485, 632, 45, 3);
 		        
-		        // checkerboard column 47
+		        // checkerboard column 37
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1530, 660, 40, 25);
 		        
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1530, 635, 40, 7);
+
+		     	// checkerboard column 38
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1570, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1570, 632, 45, 3);
 		        
-		        // checkerboard column 49
+		        // checkerboard column 39
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1615, 660, 40, 25);
 
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1615, 635, 40, 7);
+
+		     	// checkerboard column 40
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1655, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1655, 632, 45, 3);
 		                
-		        // checkerboard column 51
+		        // checkerboard column 41
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1700, 660, 40, 25);
 
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1700, 635, 40, 7);
+
+		     	// checkerboard column 42
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1740, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1740, 632, 45, 3);
 		        
-		        // checkerboard column 53
+		        // checkerboard column 43
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1785, 660, 40, 25);
 
 		        ctx.fillStyle = "rgb(256, 256, 256)";
 		        ctx.fillRect (1785, 635, 40, 7);
+
+		     	// checkerboard column 44
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1825, 642, 45, 19);
+
+		        ctx.fillStyle = "rgb(256, 256, 256)";
+		        ctx.fillRect (1825, 632, 45, 3);
 		        
 		      }
 		    }
