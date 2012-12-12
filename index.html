@@ -34,10 +34,10 @@
 	   	</canvas>
 
 		<div style="z-index: 1;position:absolute;margin-left: 25%; margin-top: 10%; color:#3CBCFC;  letter-spacing:4px; text-shadow:
-		    5px 8px 0 #0000A8,  
-		    5px 8px 0 #0000A8,
-		    5px 8px 0 #0000A8,
-		    5px 8px 0 #0000A8;">
+		    5px 8px 4px #0000A8,  
+		    5px 8px 4px #0000A8,
+		    5px 8px 4px #0000A8,
+		    5px 8px 4px #0000A8;">
 			<span style="font-family: tlpsmb; font-size:90px; padding-left:170px;">J. PAULO</span>
 			<br/>
 			<span style="font-family: tlpsmb; font-size:90px;">C. PANALIGAN</span>
@@ -166,15 +166,90 @@
 		      if (foliage.getContext) {
 		      	
 		      	var ctx = foliage.getContext("2d");
-		      	
-		      	ctx.strokeStyle = "black";
-		      	ctx.beginPath();
-		      	ctx.moveTo(1060, 675);
-		      	ctx.lineTo(1060, 685);
-		      	ctx.lineTo(940, 685);
-		      	ctx.lineTo(940, 675);
-		      	ctx.arc(1000, 675,60, Math.PI, Math.PI*2,false);
-		      	ctx.stroke();
+		      	var leaves = new Image();
+		      	leaves.onload = function() {
+		      		
+			      	
+			      	var leavesPattern = ctx.createPattern(leaves, 'repeat');
+			      	
+			      	
+			      	ctx.fillStyle = "black";
+			      	ctx.beginPath();
+			      	ctx.moveTo(300, 440);
+			      	ctx.lineTo(300, 620);
+			      	ctx.lineTo(100, 620);
+			      	ctx.lineTo(100, 610);
+			      	ctx.arc(200, 440,100, Math.PI, Math.PI*2,false);
+			      	ctx.fill();
+			      	
+			      	ctx.fillStyle = "black";
+			      	ctx.beginPath();
+			      	ctx.moveTo(400, 600);
+			      	ctx.lineTo(400, 620);
+			      	ctx.lineTo(200, 620);
+			      	ctx.lineTo(200, 610);
+			      	ctx.arc(300, 600,100, Math.PI, Math.PI*2,false);
+			      	ctx.fill();
+			      	
+			      	ctx.strokeStyle = "black";
+			      	ctx.fillStyle = leavesPattern;
+			      	ctx.beginPath();
+			      	ctx.moveTo(200, 410);
+			      	ctx.lineTo(200, 620);
+			      	ctx.lineTo(0, 620);
+			      	ctx.lineTo(0, 610);
+			      	ctx.arc(100, 410,100, Math.PI, Math.PI*2,false);
+			      	ctx.stroke();
+			      	ctx.fill();
+			      		      			      	
+			      	ctx.strokeStyle = "black";
+			      	ctx.fillStyle = leavesPattern;
+			      	ctx.beginPath();
+			      	ctx.moveTo(300, 560);
+			      	ctx.lineTo(300, 620);
+			      	ctx.lineTo(100, 620);
+			      	ctx.lineTo(100, 610);
+			      	ctx.arc(200, 560,100, Math.PI, Math.PI*2,false);
+			      	ctx.stroke();
+			      	ctx.fill();
+			      				      	
+			      				      	
+			      				      				      	
+			      	ctx.strokeStyle = "black";
+			      	ctx.fillStyle = leavesPattern;
+			      	ctx.beginPath();
+			      	ctx.moveTo(1800, 360);
+			      	ctx.lineTo(1800, 620);
+			      	ctx.lineTo(1600, 620);
+			      	ctx.lineTo(1600, 610);
+			      	ctx.arc(1700, 360,100, Math.PI, Math.PI*2,false);
+			      	ctx.stroke();
+			      	ctx.fill();
+			      	
+			      	ctx.strokeStyle = "black";
+			      	ctx.fillStyle = leavesPattern;
+			      	ctx.beginPath();
+			      	ctx.moveTo(1650, 500);
+			      	ctx.lineTo(1650, 620);
+			      	ctx.lineTo(1450, 620);
+			      	ctx.lineTo(1450, 610);
+			      	ctx.arc(1550, 500,100, Math.PI, Math.PI*2,false);
+			      	ctx.stroke();
+			      	ctx.fill();
+			      	
+			      	ctx.strokeStyle = "black";
+			      	ctx.fillStyle = leavesPattern;
+			      	ctx.beginPath();
+			      	ctx.moveTo(1550, 610);
+			      	ctx.lineTo(1550, 620);
+			      	ctx.lineTo(1350, 620);
+			      	ctx.lineTo(1350, 610);
+			      	ctx.arc(1450, 610,100, Math.PI, Math.PI*2,false);
+			      	ctx.stroke();
+			      	ctx.fill();
+			  		      				      			      	
+		      	};
+		      	leaves.src = "img/leaves.png";
 		      	
 		      }
 		      
