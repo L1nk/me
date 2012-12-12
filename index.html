@@ -172,6 +172,7 @@
 			      	
 			      	var leavesPattern = ctx.createPattern(leaves, 'repeat');
 			      	
+					ctx.lineWidth = 5;
 			      	
 			      	ctx.fillStyle = "black";
 			      	ctx.beginPath();
@@ -211,9 +212,7 @@
 			      	ctx.lineTo(100, 610);
 			      	ctx.arc(200, 560,100, Math.PI, Math.PI*2,false);
 			      	ctx.stroke();
-			      	ctx.fill();
-			      				      	
-			      				      	
+			      	ctx.fill();		      				      		      				      	
 			      				      				      	
 			      	ctx.strokeStyle = "black";
 			      	ctx.fillStyle = leavesPattern;
