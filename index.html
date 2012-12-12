@@ -21,16 +21,19 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
         
-        <canvas id="background" width="1766" height="684" style="float:left;z-index: -1;position:absolute;height:100%; width:100%">
+        <canvas id="background" width="1766" height="700" style="float:left;z-index: -2;position:absolute;height:100%; width:100%">
 	    	<p>This example requires a browser that supports the
 	    	<a href="http://www.w3.org/html/wg/html5/">HTML5</a> 
 	    	&lt;canvas&gt; feature.</p>
 	   	</canvas>
 	   	
+	   	<canvas id="foliage" width="1766" height="684" style="float:left;z-index: -1;position:absolute;">
+	   	</canvas>
+	   	
 	   	<canvas id="curtain" width="1766" height="684" style="float:left;z-index: 2;position:absolute;">
 	   	</canvas>
 
-		<div style="z-index: 1;position:absolute;margin-left: 25%; margin-top: 7%; color:#3CBCFC;  letter-spacing:4px; text-shadow:
+		<div style="z-index: 1;position:absolute;margin-left: 25%; margin-top: 10%; color:#3CBCFC;  letter-spacing:4px; text-shadow:
 		    5px 8px 0 #0000A8,  
 		    5px 8px 0 #0000A8,
 		    5px 8px 0 #0000A8,
@@ -57,6 +60,7 @@
 		    function draw() {
 		      var background = document.getElementById("background");
 			  var curtain = document.getElementById("curtain");
+			  var foliage = document.getElementById("foliage");
 
 			  if (curtain.getContext) {
 				  
@@ -103,7 +107,9 @@
 				ctx.arc(1340,70,20, Math.PI, Math.PI*2,true);
 				ctx.arc(1380,70,20, Math.PI, Math.PI*2,true);
 				ctx.arc(1420,70,20, Math.PI, Math.PI*2,true);
-				ctx.lineTo(1440,0)
+				ctx.arc(1460,70,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1500,70,20, Math.PI, Math.PI*2,true);
+				ctx.lineTo(1520,0)
 				ctx.lineTo(0,0)
 				ctx.fill();
 
@@ -148,12 +154,29 @@
 				ctx.arc(1320,40,20, Math.PI, Math.PI*2,true);
 				ctx.arc(1360,40,20, Math.PI, Math.PI*2,true);
 				ctx.arc(1400,40,20, Math.PI, Math.PI*2,true);
-				ctx.arc(1440,40,20, Math.PI, Math.PI/2,true);
-				ctx.lineTo(1440,0)
+				ctx.arc(1440,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1480,40,20, Math.PI, Math.PI*2,true);
+				ctx.arc(1520,40,20, Math.PI, Math.PI/2,true);
+				ctx.lineTo(1520,0)
 				ctx.lineTo(0,0)
 				ctx.fill();
 				
 			  }
+		      
+		      if (foliage.getContext) {
+		      	
+		      	var ctx = foliage.getContext("2d");
+		      	
+		      	ctx.strokeStyle = "black";
+		      	ctx.beginPath();
+		      	ctx.moveTo(1060, 675);
+		      	ctx.lineTo(1060, 685);
+		      	ctx.lineTo(940, 685);
+		      	ctx.lineTo(940, 675);
+		      	ctx.arc(1000, 675,60, Math.PI, Math.PI*2,false);
+		      	ctx.stroke();
+		      	
+		      }
 		      
 		      if (background.getContext) {
 
