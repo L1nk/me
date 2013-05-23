@@ -21,7 +21,7 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
         
-        <canvas id="background" width="1766" height="684" style="float:left;z-index: -2;position:absolute;">
+        <canvas id="background" width="1766" height="700" style="float:left;z-index: -2;position:absolute;height:100%; width:100%">
 	    	<p>This example requires a browser that supports the
 	    	<a href="http://www.w3.org/html/wg/html5/">HTML5</a> 
 	    	&lt;canvas&gt; feature.</p>
@@ -33,7 +33,8 @@
 	   	<canvas id="curtain" width="1766" height="684" style="float:left;z-index: 2;position:absolute;">
 	   	</canvas>
 
-	   	<canvas id="sprites" width="1766" height="684" style="float:left;z-index: 2;position:absolute;"></canvas>
+	   	<canvas id="sprites" width="1766" height="684" style="float:left;z-index: 3;position:absolute;">
+	   	</canvas>
 
 		<div style="z-index: 1;position:absolute;margin-left: 25%; margin-top: 10%; color:#3CBCFC;  letter-spacing:4px; text-shadow:
 		    5px 8px 4px #0000A8,  
@@ -62,7 +63,7 @@
 		    function draw() {
 
 		      var sources = {
-		        koopaTroopa: '/img/ani_smb3_koopatroopag.gif',
+		        koopaTroopa: '/img/ani_smb3_koopatroopag.gif'
 		      };
 
 		      var background = document.getElementById("background");
