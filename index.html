@@ -58,9 +58,15 @@
         
         <script type="application/x-javascript">
 		    function draw() {
+
+		      var sources = {
+		        koopaTroopa: '/img/ani_smb3_koopatroopag.gif',
+		      };
+
 		      var background = document.getElementById("background");
 			  var curtain = document.getElementById("curtain");
 			  var foliage = document.getElementById("foliage");
+			  var sprites = document.getElementById('sprites');
 
 			  if (curtain.getContext) {
 				  
@@ -578,6 +584,35 @@
 		        
 		      }
 		    }
+
+		    function loadImages(sources, callback) {
+		        var images = {};
+		        var loadedImages = 0;
+		        var numImages = 0;
+		        // get num of sources
+		        for(var src in sources) {
+		          numImages++;
+		        }
+		        for(var src in sources) {
+		          images[src] = new Image();
+		          images[src].onload = function() {
+		            if(++loadedImages >= numImages) {
+		              callback(images);
+		            }
+		          };
+		          images[src].src = sources[src];
+		        }
+		    } 
+		    
+		   	// Callbacks
+
+		    loadImages(sources, function(images) {
+		    	if (sprites.getContext) {
+		      		var ctx = canvas.getContext('2d');
+		        	context.drawImage(images.koopaTroopa, 100, 30, 200, 137);
+		    	}
+		    });
+
 	  	</script>
 	  	
     </body>
