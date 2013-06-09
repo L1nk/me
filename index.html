@@ -129,74 +129,74 @@
 			      	
 			      	ctx.fillStyle = "black";
 			      	ctx.beginPath();
-			      	ctx.moveTo(300, 440);
-			      	ctx.lineTo(300, 620);
-			      	ctx.lineTo(100, 620);
-			      	ctx.lineTo(100, 610);
-			      	ctx.arc(200, 440,100, Math.PI, Math.PI*2,false);
+			      	ctx.moveTo(300, maxHeight-85-12-170);
+			      	ctx.lineTo(300, maxHeight-85-2);
+			      	ctx.lineTo(100, maxHeight-85-2);
+			      	ctx.lineTo(100, maxHeight-85-12);
+			      	ctx.arc(200, maxHeight-85-12-170,100, Math.PI, Math.PI*2,false);
 			      	ctx.fill();
 			      	
 			      	ctx.fillStyle = "black";
 			      	ctx.beginPath();
-			      	ctx.moveTo(400, 600);
-			      	ctx.lineTo(400, 620);
-			      	ctx.lineTo(200, 620);
-			      	ctx.lineTo(200, 610);
-			      	ctx.arc(300, 600,100, Math.PI, Math.PI*2,false);
+			      	ctx.moveTo(400, maxHeight-80-22);
+			      	ctx.lineTo(400, maxHeight-80-2);
+			      	ctx.lineTo(200, maxHeight-80-2);
+			      	ctx.lineTo(200, maxHeight-80-12);
+			      	ctx.arc(300, maxHeight-80-22,100, Math.PI, Math.PI*2,false);
 			      	ctx.fill();
 			      	
 			      	ctx.strokeStyle = "black";
 			      	ctx.fillStyle = leavesPattern;
 			      	ctx.beginPath();
-			      	ctx.moveTo(200, 410);
-			      	ctx.lineTo(200, 620);
-			      	ctx.lineTo(0, 620);
-			      	ctx.lineTo(0, 610);
-			      	ctx.arc(100, 410,100, Math.PI, Math.PI*2,false);
+			      	ctx.moveTo(200, maxHeight-85-12-200);
+			      	ctx.lineTo(200, maxHeight-85-2);
+			      	ctx.lineTo(0, maxHeight-85-2);
+			      	ctx.lineTo(0, maxHeight-85-12);
+			      	ctx.arc(100, maxHeight-85-12-200,100, Math.PI, Math.PI*2,false);
 			      	ctx.stroke();
 			      	ctx.fill();
 			      		      			      	
 			      	ctx.strokeStyle = "black";
 			      	ctx.fillStyle = leavesPattern;
 			      	ctx.beginPath();
-			      	ctx.moveTo(300, 560);
-			      	ctx.lineTo(300, 620);
-			      	ctx.lineTo(100, 620);
-			      	ctx.lineTo(100, 610);
-			      	ctx.arc(200, 560,100, Math.PI, Math.PI*2,false);
+			      	ctx.moveTo(300, maxHeight-85-12-110+60);
+			      	ctx.lineTo(300, maxHeight-85-2);
+			      	ctx.lineTo(100, maxHeight-85-2);
+			      	ctx.lineTo(100, maxHeight-85-12);
+			      	ctx.arc(200, maxHeight-85-12-110+60,100, Math.PI, Math.PI*2,false);
 			      	ctx.stroke();
 			      	ctx.fill();		      				      		      				      	
 
 			      	ctx.strokeStyle = "black";
 			      	ctx.fillStyle = leavesPattern;
 			      	ctx.beginPath();
-			      	ctx.moveTo(maxWidth, 360);
-			      	ctx.lineTo(maxWidth, 620);
-			      	ctx.lineTo(maxWidth-200, 620);
-			      	ctx.lineTo(maxWidth-200, 610);
-			      	ctx.arc(maxWidth-100, 360,100, Math.PI, Math.PI*2,false);
+			      	ctx.moveTo(maxWidth, maxHeight-85-12-110-140);
+			      	ctx.lineTo(maxWidth, maxHeight-85-2);
+			      	ctx.lineTo(maxWidth-200, maxHeight-85-2);
+			      	ctx.lineTo(maxWidth-200, maxHeight-85-12);
+			      	ctx.arc(maxWidth-100, maxHeight-85-12-110-140,100, Math.PI, Math.PI*2,false);
 			      	ctx.stroke();
 			      	ctx.fill();
 			      	
 			      	ctx.strokeStyle = "black";
 			      	ctx.fillStyle = leavesPattern;
 			      	ctx.beginPath();
-			      	ctx.moveTo(maxWidth-150, 500);
-			      	ctx.lineTo(maxWidth-150, 620);
-			      	ctx.lineTo(maxWidth-350, 620);
-			      	ctx.lineTo(maxWidth-350, 610);
-			      	ctx.arc(maxWidth-250, 500,100, Math.PI, Math.PI*2,false);
+			      	ctx.moveTo(maxWidth-150, maxHeight-85-12-110);
+			      	ctx.lineTo(maxWidth-150, maxHeight-85-2);
+			      	ctx.lineTo(maxWidth-350, maxHeight-85-2);
+			      	ctx.lineTo(maxWidth-350, maxHeight-85-12);
+			      	ctx.arc(maxWidth-250, maxHeight-85-12-110,100, Math.PI, Math.PI*2,false);
 			      	ctx.stroke();
 			      	ctx.fill();
 			      	
 			      	ctx.strokeStyle = "black";
 			      	ctx.fillStyle = leavesPattern;
 			      	ctx.beginPath();
-			      	ctx.moveTo(maxWidth-250, 610);
-			      	ctx.lineTo(maxWidth-250, 620);
-			      	ctx.lineTo(maxWidth-450, 620);
-			      	ctx.lineTo(maxWidth-450, 610);
-			      	ctx.arc(maxWidth-350, 610,100, Math.PI, Math.PI*2,false);
+			      	ctx.moveTo(maxWidth-250, maxHeight-85-12);
+			      	ctx.lineTo(maxWidth-250, maxHeight-85-2);
+			      	ctx.lineTo(maxWidth-450, maxHeight-85-2);
+			      	ctx.lineTo(maxWidth-450, maxHeight-85-12);
+			      	ctx.arc(maxWidth-350, maxHeight-85-12,100, Math.PI, Math.PI*2,false); // 610
 			      	ctx.stroke();
 			      	ctx.fill();
 			  		      				      			      	
@@ -222,21 +222,21 @@
 		
 				// bottom background
 		        ctx.fillStyle = "rgb(0, 0, 0)";
-		        ctx.fillRect (0, 622, maxWidth, 85);
+		        ctx.fillRect (0, maxHeight-85, maxWidth, 85); // 622
 
 		        // bottom background white bar		        
 		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (0, 628, maxWidth, 2);
+		        ctx.fillRect (0, maxHeight-85+6, maxWidth, 2);
 
 		        while (currentColumnStart < maxWidth) {
 		        	if (columnIter%2) {
-				        ctx.fillRect (currentColumnStart, 660, 40, 25);
-				        ctx.fillRect (currentColumnStart, 635, 40, 7);
+				        ctx.fillRect (currentColumnStart, maxHeight-85+38, 40, 25);
+				        ctx.fillRect (currentColumnStart, maxHeight-85+13, 40, 7);
 		        		columnIter ++;
 		        		currentColumnStart += columnWidth;
 		        	} else {
-				        ctx.fillRect (currentColumnStart, 642, 40, 19);
-				        ctx.fillRect (currentColumnStart, 632, 40, 3);
+				        ctx.fillRect (currentColumnStart, maxHeight-85+20, 40, 19);
+				        ctx.fillRect (currentColumnStart, maxHeight-85+10, 40, 3);
 		        		currentColumnStart += columnWidth;
 		        		columnIter ++;
 		        	}
