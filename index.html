@@ -80,7 +80,7 @@
 				ctx.canvas.width = window.innerWidth;
 				ctx.canvas.height = window.innerHeight;
 
-				var currentCurtainLocation = 20;
+				var curtainShadowLocation = 20;
 				var curtainRadius = 40; 
 				var maxWidth = window.innerWidth;
 
@@ -89,50 +89,11 @@
 				ctx.beginPath();
 				ctx.moveTo(0,0);
 				ctx.lineTo(0,70);
-
-				while(currentCurtainLocation < maxWidth) {
-					ctx.arc(currentCurtainLocation,70,20, Math.PI, Math.PI*2,true);
-					currentCurtainLocation += curtainRadius;
+				while(curtainShadowLocation < maxWidth) {
+					ctx.arc(curtainShadowLocation,70,20, Math.PI, Math.PI*2,true);
+					curtainShadowLocation += curtainRadius;
 				}
-				// ctx.arc(20,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(60,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(100,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(140,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(180,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(220,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(260,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(300,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(340,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(380,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(420,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(460,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(500,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(540,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(580,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(620,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(660,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(700,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(740,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(780,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(820,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(860,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(900,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(940,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(980,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(1020,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(1060,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(1100,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(1140,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(1180,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(1220,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(1260,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(1300,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(1340,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(1380,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(1420,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(1460,70,20, Math.PI, Math.PI*2,true);
-				// ctx.arc(1500,70,20, Math.PI, Math.PI*2,true);
-				ctx.lineTo(currentCurtainLocation,0)
+				ctx.lineTo(curtainShadowLocation,0)
 				ctx.lineTo(0,0)
 				ctx.fill();
 
@@ -141,7 +102,10 @@
 				ctx.beginPath();
 				ctx.moveTo(0,0);
 				ctx.lineTo(0,60);
-				ctx.arc(0,40,20, Math.PI/2, 2*Math.PI,true);
+				ctx.arc(0,40,20, Math.PI/2, Math.PI*2,true);
+
+
+
 				ctx.arc(40,40,20, Math.PI, Math.PI*2,true);
 				ctx.arc(80,40,20, Math.PI, Math.PI*2,true);
 				ctx.arc(120,40,20, Math.PI, Math.PI*2,true);
