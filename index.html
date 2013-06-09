@@ -31,7 +31,10 @@
 			<span style="font-family: tlpsmb; font-size:90px;">C. PANALIGAN</span>
 		</div>
 
-		<div id="koopa-troopa-green" style="z-index: 3;background-image:url('img/ani_smb3_koopatroopag.gif');">
+		<div  id="koopa-troopa-green" style="z-index: 3;background-image:url('img/ani_smb3_koopatroopag.gif'); height:26px; width: 16px; display: none">
+	   	</div>
+
+	   	<div  id="goomba" style="z-index: 3;background-image:url('img/Goomba_(Super_Mario_Bros_3).gif'); height:15px; width: 16px; display: none">
 	   	</div>	
 
         <canvas id="background" style="float:left; z-index: -2; position:absolute;">
@@ -66,6 +69,52 @@
 		    var sprites = document.getElementById('sprites');
 			var maxWidth = window.innerWidth;
 			var maxHeight = window.innerHeight;
+			var koopaTroopaGreen = document.getElementById('koopa-troopa-green');		
+			var goomba = document.getElementById('goomba');
+			var koopaPosition = 516;
+			var goombaPosition = 600;
+
+			(function animateGreenKoopaTroopa() {
+
+				var koopaY = maxHeight-85-26;
+
+				koopaTroopaGreen.style.position = "absolute";
+
+				koopaTroopaGreen.style.top = String(koopaY) + "px";
+				koopaTroopaGreen.style.left= String(koopaPosition-1) + "px";
+				koopaTroopaGreen.style.display = "inline";
+				koopaPosition-=1;
+				setTimeout(animateGreenKoopaTroopa, 250);
+
+			})();
+
+			(function animateGoomba() {
+
+				var goombaY = maxHeight-85-15;
+
+				goomba.style.position = "absolute";
+
+				goomba.style.top = String(goombaY) + "px";
+				goomba.style.left= String(goombaPosition+2) + "px";
+				goomba.style.display = "inline";
+				goombaPosition+=2;
+				setTimeout(animateGoomba, 250);
+
+			})();
+
+			(function animateGreenKoopaTroopa() {
+
+				var koopaY = maxHeight-85-26;
+
+				koopaTroopaGreen.style.position = "absolute";
+
+				koopaTroopaGreen.style.top = String(koopaY) + "px";
+				koopaTroopaGreen.style.left= String(koopaPosition-1) + "px";
+				koopaTroopaGreen.style.display = "inline";
+				koopaPosition-=1;
+				setTimeout(animateGreenKoopaTroopa, 250);
+
+			})();
 
 		    function draw() {
 
@@ -107,7 +156,7 @@
 					ctx.arc(curtainLocation,40,20, Math.PI, Math.PI*2,true);
 					curtainLocation += curtainRadius;
 				}				
-				ctx.lineTo(curtainLocation-curtainRadius,0)
+				ctx.lineTo(curtainLocation,0)
 				ctx.lineTo(0,0)
 				ctx.fill();
 				
@@ -196,7 +245,7 @@
 			      	ctx.lineTo(maxWidth-250, maxHeight-85-2);
 			      	ctx.lineTo(maxWidth-450, maxHeight-85-2);
 			      	ctx.lineTo(maxWidth-450, maxHeight-85-12);
-			      	ctx.arc(maxWidth-350, maxHeight-85-12,100, Math.PI, Math.PI*2,false); // 610
+			      	ctx.arc(maxWidth-350, maxHeight-85-12,100, Math.PI, Math.PI*2,false); 
 			      	ctx.stroke();
 			      	ctx.fill();
 			  		      				      			      	
@@ -222,7 +271,7 @@
 		
 				// bottom background
 		        ctx.fillStyle = "rgb(0, 0, 0)";
-		        ctx.fillRect (0, maxHeight-85, maxWidth, 85); // 622
+		        ctx.fillRect (0, maxHeight-85, maxWidth, 85); 
 
 		        // bottom background white bar		        
 		        ctx.fillStyle = "rgb(256, 256, 256)";
@@ -243,6 +292,7 @@
 		        }
 		        
 		      }
+
 		    }
 
 	  	</script>
