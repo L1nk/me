@@ -21,22 +21,7 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
         
-        <canvas id="background" width="1766" height="700" style="float:left;z-index: -2;position:absolute;height:100%; width:100%">
-	    	<p>This example requires a browser that supports the
-	    	<a href="http://www.w3.org/html/wg/html5/">HTML5</a> 
-	    	&lt;canvas&gt; feature.</p>
-	   	</canvas>
-	   	
-	   	<canvas id="foliage" width="1766" height="684" style="float:left;z-index: -1;position:absolute;">
-	   	</canvas>
-	   	
-	   	<canvas id="curtain" width="1766" height="684" style="float:left;z-index: 2;position:absolute;">
-	   	</canvas>
-
-	   	<canvas id="sprites" width="1766" height="684" style="float:left;z-index: 3;position:absolute;">
-	   	</canvas>
-
-		<div style="z-index: 1;position:absolute;margin-left: 25%; margin-top: 10%; color:#3CBCFC;  letter-spacing:4px; text-shadow:
+		<div style="z-index: 4;position:absolute;margin-left: 25%; margin-top: 10%; color:#3CBCFC;  letter-spacing:4px; text-shadow:
 		    5px 8px 4px #0000A8,  
 		    5px 8px 4px #0000A8,
 		    5px 8px 4px #0000A8,
@@ -45,6 +30,23 @@
 			<br/>
 			<span style="font-family: tlpsmb; font-size:90px;">C. PANALIGAN</span>
 		</div>
+
+        <canvas id="background" style="float:left; z-index: -2; position:absolute;">
+	    	<p>This example requires a browser that supports the
+	    	<a href="http://www.w3.org/html/wg/html5/">HTML5</a> 
+	    	&lt;canvas&gt; feature.</p>
+	   	</canvas>
+	   	
+	   	<canvas id="foliage" style="float:left;z-index: -1;position:absolute;">
+	   	</canvas>
+	   	
+	   	<canvas id="curtain" tyle="float:left;z-index: 2;position:absolute;">
+	   	</canvas>
+
+	   	<canvas id="sprites" style="float:left;z-index: 3;position:absolute;">
+	   	</canvas>
+
+		
 		
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
@@ -63,7 +65,7 @@
 		    function draw() {
 
 		      var sources = {
-		        koopaTroopa: '/img/ani_smb3_koopatroopag.gif'
+		        koopaTroopa: './img/ani_smb3_koopatroopag.gif'
 		      };
 
 		      var background = document.getElementById("background");
@@ -75,50 +77,62 @@
 				  
 				var ctx = curtain.getContext("2d");
 
+				ctx.canvas.width = window.innerWidth;
+				ctx.canvas.height = window.innerHeight;
+
+				var currentCurtainLocation = 20;
+				var curtainRadius = 40; 
+				var maxWidth = window.innerWidth;
+
 				// curtain shadow
 				ctx.fillStyle = 'black';
 				ctx.beginPath();
 				ctx.moveTo(0,0);
 				ctx.lineTo(0,70);
-				ctx.arc(20,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(60,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(100,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(140,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(180,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(220,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(260,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(300,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(340,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(380,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(420,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(460,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(500,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(540,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(580,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(620,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(660,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(700,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(740,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(780,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(820,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(860,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(900,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(940,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(980,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(1020,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(1060,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(1100,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(1140,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(1180,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(1220,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(1260,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(1300,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(1340,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(1380,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(1420,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(1460,70,20, Math.PI, Math.PI*2,true);
-				ctx.arc(1500,70,20, Math.PI, Math.PI*2,true);
-				ctx.lineTo(1520,0)
+
+				while(currentCurtainLocation < maxWidth) {
+					ctx.arc(currentCurtainLocation,70,20, Math.PI, Math.PI*2,true);
+					currentCurtainLocation += curtainRadius;
+				}
+				// ctx.arc(20,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(60,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(100,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(140,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(180,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(220,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(260,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(300,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(340,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(380,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(420,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(460,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(500,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(540,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(580,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(620,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(660,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(700,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(740,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(780,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(820,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(860,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(900,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(940,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(980,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(1020,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(1060,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(1100,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(1140,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(1180,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(1220,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(1260,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(1300,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(1340,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(1380,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(1420,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(1460,70,20, Math.PI, Math.PI*2,true);
+				// ctx.arc(1500,70,20, Math.PI, Math.PI*2,true);
+				ctx.lineTo(currentCurtainLocation,0)
 				ctx.lineTo(0,0)
 				ctx.fill();
 
@@ -175,6 +189,10 @@
 		      if (foliage.getContext) {
 		      	
 		      	var ctx = foliage.getContext("2d");
+
+				ctx.canvas.width = window.innerWidth;
+				ctx.canvas.height = window.innerHeight;
+		      	
 		      	var leaves = new Image();
 		      	leaves.onload = function() {
 		      		
@@ -264,6 +282,9 @@
 		      if (background.getContext) {
 
 			    var ctx = background.getContext("2d");
+
+				ctx.canvas.width = window.innerWidth;
+				ctx.canvas.height = window.innerHeight;
 		
 				// background
 		        ctx.fillStyle = "rgb(252,216,168)";
@@ -612,6 +633,10 @@
 		    loadImages(sources, function(images) {
 		    	if (sprites.getContext) {
 		      		var ctx = canvas.getContext('2d');
+
+					ctx.canvas.width = window.innerWidth;
+					ctx.canvas.height = window.innerHeight;
+					
 		        	context.drawImage(images.koopaTroopa, 100, 30, 200, 137);
 		    	}
 		    });
