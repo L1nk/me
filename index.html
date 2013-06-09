@@ -31,6 +31,9 @@
 			<span style="font-family: tlpsmb; font-size:90px;">C. PANALIGAN</span>
 		</div>
 
+		<div id="koopa-troopa-green" style="z-index: 3;background-image:url('img/ani_smb3_koopatroopag.gif');">
+	   	</div>	
+
         <canvas id="background" style="float:left; z-index: -2; position:absolute;">
 	    	<p>This example requires a browser that supports the
 	    	<a href="http://www.w3.org/html/wg/html5/">HTML5</a> 
@@ -43,10 +46,7 @@
 	   	<canvas id="curtain" tyle="float:left;z-index: 2;position:absolute;">
 	   	</canvas>
 
-	   	<canvas id="sprites" style="float:left;z-index: 3;position:absolute;">
-	   	</canvas>
-
-		
+	   
 		
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
@@ -61,30 +61,29 @@
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
         
-        <script type="application/x-javascript">
-		    function draw() {
+        <script type="application/x-javascript">		  
 
-		      var sources = {
-		        koopaTroopa: './img/ani_smb3_koopatroopag.gif'
-		      };
+		    var sprites = document.getElementById('sprites');
+			var maxWidth = window.innerWidth;
+			var maxHeight = window.innerHeight;
+
+		    function draw() {
 
 		      var background = document.getElementById("background");
 			  var curtain = document.getElementById("curtain");
 			  var foliage = document.getElementById("foliage");
-			  var sprites = document.getElementById('sprites');
 
 			  if (curtain.getContext) {
 				  
 				var ctx = curtain.getContext("2d");
 
-				ctx.canvas.width = window.innerWidth;
-				ctx.canvas.height = window.innerHeight;
+				ctx.canvas.width = maxWidth;
+				ctx.canvas.height = maxHeight;
 
 				var curtainShadowLocation = 20;
 				var curtainLocation = 40;
 				var curtainRadius = 40; 
-				var maxWidth = window.innerWidth;
-
+			
 				// curtain shadow
 				ctx.fillStyle = 'black';
 				ctx.beginPath();
@@ -118,10 +117,8 @@
 		      	
 		      	var ctx = foliage.getContext("2d");
 
-				ctx.canvas.width = window.innerWidth;
-				ctx.canvas.height = window.innerHeight;
-
-				var maxWidth = window.innerWidth
+				ctx.canvas.width = maxWidth;
+				ctx.canvas.height = maxHeight;
 		      	
 		      	var leaves = new Image();
 		      	leaves.onload = function() {
@@ -212,363 +209,41 @@
 
 			    var ctx = background.getContext("2d");
 
-				ctx.canvas.width = window.innerWidth;
-				ctx.canvas.height = window.innerHeight;
+				ctx.canvas.width = maxWidth;
+				ctx.canvas.height = maxHeight;
+
+				var columnIter = 1;
+				var columnWidth = 40;
+				var currentColumnStart = 0;
 		
 				// background
 		        ctx.fillStyle = "rgb(252,216,168)";
-		        ctx.fillRect (0, 0, background.width, background.height);
+		        ctx.fillRect (0, 0, maxWidth, maxHeight);
 		
 				// bottom background
 		        ctx.fillStyle = "rgb(0, 0, 0)";
-		        ctx.fillRect (0, 622, background.width, 85);
+		        ctx.fillRect (0, 622, maxWidth, 85);
 
 		        // bottom background white bar		        
 		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (0, 628, background.width, 2);
-		        
-		        // checkerboard column 1
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (0, 660, 40, 25);
-		        
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (0, 635, 40, 7);
-		        
-		        // checckerboard column 2
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (40, 642, 45, 19);
+		        ctx.fillRect (0, 628, maxWidth, 2);
 
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (40, 632, 45, 3);
-		        
-		        // checkerboard column 3
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (85, 660, 40, 25);
-		        
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (85, 635, 40, 7);
-		        
-		        // checkerboard column 4
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (125, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (125, 632, 45, 3);
-		        
-		        // checkerboard column 5
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (170, 660, 40, 25);
-		        
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (170, 635, 40, 7);
-		        
-		        // checkerboard column 6
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (210, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (210, 632, 45, 3);
-		        
-		        // checkerboard column 7
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (255, 660, 40, 25);
-		        
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (255, 635, 40, 7);
-
-		        // checkerboard column 8
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (295, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (295, 632, 45, 3);
-		        
-		        // checkerboard column 9
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (340, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (340, 635, 40, 7);
-
-		     	// checkerboard column 10
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (380, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (380, 632, 45, 3);
-		        
-		        // checkerboard column 11
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (425, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (425, 635, 40, 7);
-
-		     	// checkerboard column 12
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (465, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (465, 632, 45, 3);
-		        
-		        // checkerboard column 13
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (510, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (510, 635, 40, 7);
-
-		     	// checkerboard column 14
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (550, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (550, 632, 45, 3);
-		        
-		        // checkerboard column 15
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (595, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (595, 635, 40, 7);
-
-		     	// checkerboard column 16
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (635, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (635, 632, 45, 3);
-		        
-		        // checkerboard column 17
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (680, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (680, 635, 40, 7);
-
-		     	// checkerboard column 18
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (720, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (720, 632, 45, 3);
-		        
-		        // checkerboard column 19
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (765, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (765, 635, 40, 7);
-
-		     	// checkerboard column 20
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (805, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (805, 632, 45, 3);
-		        
-		        // checkerboard column 21
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (850, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (850, 635, 40, 7);
-
-		     	// checkerboard column 22
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (890, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (890, 632, 45, 3);
-		        
-		        // checkerboard column 23
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (935, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (935, 635, 40, 7);
-
-		     	// checkerboard column 24
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (975, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (975, 632, 45, 3);
-		        
-		        // checkerboard column 25
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1020, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1020, 635, 40, 7);
-
-		     	// checkerboard column 26
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1060, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1060, 632, 45, 3);
-		        
-		        // checkerboard column 27
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1105, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1105, 635, 40, 7);
-
-		     	// checkerboard column 28
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1145, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1145, 632, 45, 3);
-		        
-		        // checkerboard column 29
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1190, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1190, 635, 40, 7);
-
-		     	// checkerboard column 30
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1230, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1230, 632, 45, 3);
-		        
-		        // checkerboard column 31
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1275, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1275, 635, 40, 7);
-
-		     	// checkerboard column 32
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1315, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1315, 632, 45, 3);
-		        
-		        // checkerboard column 33
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1360, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1360, 635, 40, 7);
-
-		     	// checkerboard column 34
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1400, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1400, 632, 45, 3);
-		        
-		        // checkerboard column 35
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1445, 660, 40, 25);
-		        
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1445, 635, 40, 7);
-
-		     	// checkerboard column 36
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1485, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1485, 632, 45, 3);
-		        
-		        // checkerboard column 37
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1530, 660, 40, 25);
-		        
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1530, 635, 40, 7);
-
-		     	// checkerboard column 38
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1570, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1570, 632, 45, 3);
-		        
-		        // checkerboard column 39
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1615, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1615, 635, 40, 7);
-
-		     	// checkerboard column 40
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1655, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1655, 632, 45, 3);
-		                
-		        // checkerboard column 41
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1700, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1700, 635, 40, 7);
-
-		     	// checkerboard column 42
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1740, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1740, 632, 45, 3);
-		        
-		        // checkerboard column 43
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1785, 660, 40, 25);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1785, 635, 40, 7);
-
-		     	// checkerboard column 44
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1825, 642, 45, 19);
-
-		        ctx.fillStyle = "rgb(256, 256, 256)";
-		        ctx.fillRect (1825, 632, 45, 3);
+		        while (currentColumnStart < maxWidth) {
+		        	if (columnIter%2) {
+				        ctx.fillRect (currentColumnStart, 660, 40, 25);
+				        ctx.fillRect (currentColumnStart, 635, 40, 7);
+		        		columnIter ++;
+		        		currentColumnStart += columnWidth;
+		        	} else {
+				        ctx.fillRect (currentColumnStart, 642, 40, 19);
+				        ctx.fillRect (currentColumnStart, 632, 40, 3);
+		        		currentColumnStart += columnWidth;
+		        		columnIter ++;
+		        	}
+		        }
 		        
 		      }
 		    }
-
-		    function loadImages(sources, callback) {
-		        var images = {};
-		        var loadedImages = 0;
-		        var numImages = 0;
-		        // get num of sources
-		        for(var src in sources) {
-		          numImages++;
-		        }
-		        for(var src in sources) {
-		          images[src] = new Image();
-		          images[src].onload = function() {
-		            if(++loadedImages >= numImages) {
-		              callback(images);
-		            }
-		          };
-		          images[src].src = sources[src];
-		        }
-		    } 
-		    
-		   	// Callbacks
-
-		    loadImages(sources, function(images) {
-		    	if (sprites.getContext) {
-		      		var ctx = canvas.getContext('2d');
-
-					ctx.canvas.width = window.innerWidth;
-					ctx.canvas.height = window.innerHeight;
-					
-		        	context.drawImage(images.koopaTroopa, 100, 30, 200, 137);
-		    	}
-		    });
 
 	  	</script>
 	  	
