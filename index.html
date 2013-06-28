@@ -32,7 +32,7 @@
 			<span style="font-family: tlpsmb; font-size:90px; padding-left:150px;">BROS.</span>
 		</div>
 
-		<div style="z-index: 4;position:absolute;margin-left: 37%; margin-top: 40%; color:#3CBCFC;  letter-spacing:4px; text-shadow:
+		<div style="z-index: 4;position:absolute;margin-left: 33%; margin-top: 40%; color:#3CBCFC;  letter-spacing:4px; text-shadow:
 		    1px 2px 1px #0000A8,  
 		    1px 2px 1px #0000A8,
 		    1px 2px 1px #0000A8,
@@ -40,13 +40,18 @@
 			<span style="font-family: tlpsmb; font-size:20px;"> &#9733;
 				<a style="color:inherit; text-decoration:none" href="http://www.paulopanaligan.blogspot.com">BLOG</a> &#9733; 
 				<a style="color:inherit; text-decoration:none" href="http://www.instagr.am/panaligram">PANALIGRAM</a> &#9733; 
+				<a style="color:inherit; text-decoration:none" href="./content/Resume_ppanaligan.pdf">RESUME</a> &#9733; 
 		</div>
 
 
-		<div  id="koopa-troopa-green" style="z-index: 3;background-image:url('img/ani_smb3_koopatroopag.gif'); height:26px; width: 16px; display: none">
+		<div  id="koopa-troopa-green" style="z-index: 3; height:52px; width: 32px;  display: none;">
+	   		<img src="img/ani_smb3_koopatroopag.gif" style="height:52px; width: 32px;"/>
+
 	   	</div>
 
-	   	<div  id="goomba" style="z-index: 3;background-image:url('img/Goomba_(Super_Mario_Bros_3).gif'); height:15px; width: 16px; display: none">
+	   	<div  id="goomba" style="z-index: 3; height:15px; width: 16px; display: none">
+
+	   		<img src="img/ani_smb3_paragoombawalkr.gif" style="height:30px; width: 32px;"/>
 	   	</div>	
 
         <canvas id="background" style="float:left; z-index: -2; position:absolute;">
@@ -88,7 +93,7 @@
 
 			(function animateGreenKoopaTroopa() {
 
-				var koopaY = maxHeight-85-26;
+				var koopaY = maxHeight-85-50;
 
 				koopaTroopaGreen.style.position = "absolute";
 
@@ -102,7 +107,7 @@
 
 			(function animateGoomba() {
 
-				var goombaY = maxHeight-85-15;
+				var goombaY = maxHeight-85-28;
 
 				goomba.style.position = "absolute";
 
@@ -111,20 +116,6 @@
 				goomba.style.display = "inline";
 				goombaPosition+=2;
 				setTimeout(animateGoomba, 250);
-
-			})();
-
-			(function animateGreenKoopaTroopa() {
-
-				var koopaY = maxHeight-85-26;
-
-				koopaTroopaGreen.style.position = "absolute";
-
-				koopaTroopaGreen.style.top = String(koopaY) + "px";
-				koopaTroopaGreen.style.left= String(koopaPosition-1) + "px";
-				koopaTroopaGreen.style.display = "inline";
-				koopaPosition-=1;
-				setTimeout(animateGreenKoopaTroopa, 250);
 
 			})();
 
