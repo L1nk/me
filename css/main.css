@@ -93,21 +93,33 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.ellipseDiv
+{
+  height:100px;
+  width:200px;
+  border: 2px solid #005;
+  border-radius:100px / 50px;
+  background-color:#FEFEFE;
+}
 
 
+.ellipseDivTwo
+{
+  height:75px;
+  width:150px;
+  border: 2px solid #005;
+  border-radius:75px / 38px;
+  background-color:#FEFEFE;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.ellipseDivThree
+{
+  height:50px;
+  width:100px;
+  border: 2px solid #005;
+  border-radius:50px / 25px;
+  background-color:#FEFEFE;
+}
 
 /* ==========================================================================
    Helper classes

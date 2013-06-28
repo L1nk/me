@@ -27,9 +27,21 @@
 		    5px 8px 4px #0000A8,
 		    5px 8px 4px #0000A8,
 		    5px 8px 4px #0000A8;">
-			<span style="font-family: tlpsmb; font-size:90px;">SUPER JPCP</span>
+			<span style="font-family: tlpsmb; font-size:90px; padding-left:120px;">SUPER</span>
 			<br/>
-			<span style="font-family: tlpsmb; font-size:90px; padding-left:150px;">BROS.</span>
+			<span style="font-family: tlpsmb; font-size:90px; padding-left:10px;">JPCP BROS.</span>
+		</div>
+
+		<div class="ellipseDiv" style="display:inline; position: absolute; top:100px; right: 100px; Z-index:3">
+
+		</div>
+
+		<div class="ellipseDivTwo" style="display:inline; position: absolute; top:250px; left: 350px; Z-index:3">
+
+		</div>
+
+		<div class="ellipseDivThree" style="display:inline; position: absolute; top:400px; left: 100px; Z-index:3">
+
 		</div>
 
 		<div style="z-index: 4;position:absolute;margin-left: 33%; margin-top: 40%; color:#3CBCFC;  letter-spacing:4px; text-shadow:
@@ -135,6 +147,7 @@
 				var curtainShadowLocation = 20;
 				var curtainLocation = 40;
 				var curtainRadius = 40; 
+				var curtainDetailLocation = 40;
 			
 				// curtain shadow
 				ctx.fillStyle = 'black';
@@ -162,6 +175,54 @@
 				ctx.lineTo(curtainLocation,0)
 				ctx.lineTo(0,0)
 				ctx.fill();
+
+				// curtain detail
+				ctx.strokeStyle = "black";
+				ctx.lineWidth = 3;
+				ctx.beginPath();
+				ctx.moveTo(0,0);
+				ctx.lineTo(0,30);
+				ctx.arc(0,30,20, Math.PI/2, Math.PI*2,true);
+				while(curtainDetailLocation < maxWidth) {
+					ctx.arc(curtainDetailLocation,30,20, Math.PI, Math.PI*2,true);
+					curtainDetailLocation += curtainRadius;
+				}				
+				ctx.lineTo(curtainDetailLocation,0)
+				ctx.lineTo(0,0)
+				ctx.stroke();
+
+
+				var curtainDetailLocation = 40;
+
+				ctx.strokeStyle = "black";
+				ctx.lineWidth = 3;
+				ctx.beginPath();
+				ctx.moveTo(0,0);
+				ctx.lineTo(0,20);
+				ctx.arc(0,20,20, Math.PI/2, Math.PI*2,true);
+				while(curtainDetailLocation < maxWidth) {
+					ctx.arc(curtainDetailLocation,20,20, Math.PI, Math.PI*2,true);
+					curtainDetailLocation += curtainRadius;
+				}				
+				ctx.lineTo(curtainDetailLocation,0)
+				ctx.lineTo(0,0)
+				ctx.stroke();
+
+				var curtainDetailLocation = 40;
+
+				ctx.strokeStyle = "black";
+				ctx.lineWidth = 3;
+				ctx.beginPath();
+				ctx.moveTo(0,0);
+				ctx.lineTo(0,10);
+				ctx.arc(0,10,20, Math.PI/2, Math.PI*2,true);
+				while(curtainDetailLocation < maxWidth) {
+					ctx.arc(curtainDetailLocation,10,20, Math.PI, Math.PI*2,true);
+					curtainDetailLocation += curtainRadius;
+				}				
+				ctx.lineTo(curtainDetailLocation,0)
+				ctx.lineTo(0,0)
+				ctx.stroke();
 				
 			  }
 		      
