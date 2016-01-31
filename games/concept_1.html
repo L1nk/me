@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Concept 1</title>
+    <style>
+        div {
+            width: 1000px;
+            height: 500px;
+            background-color: lightskyblue;
+
+            position: absolute;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <canvas id="canvas1" width="1000" height="500" style = "border: 1px solid black;"></canvas>
+</div>
+</body>
+<script>
+    var can = document.getElementById('canvas1');
+    var ctx = can.getContext('2d');
+    can.tabIndex = 1; // quick way to get focus so keypresses register
+    ctx.font = '8px sans';
+
+    var thingsOnMap = [
+        [500,250],
+        [550,350],
+        [150,110],
+        [1500,100],
+        [1200,400],
+        [1000,50],
+        [1700,200],
+        [1300,350],
+        [2300,100],
+        [3300,225],
+        [2500,325]
+    ];
+
+    // player's position
+    var playerX = 20;
+    var playerY = 20;
+
+    // how far offset the canvas is
+    var offsetX = 0;
+    var offsetY = 0;
+
+    function intersectRect(r1_top, r1_bottom, r1_left, r1_right, r2_top, r2_bottom, r2_left, r2_right) {
+        return !(r2_left > r1_right ||
+        r2_right < r1_left ||
+        r2_top > r1_bottom ||
+        r2_bottom < r1_top);
+    }
+
+    function draw() {
+        ctx.save();
+        ctx.translate(offsetX, offsetY);
+        // clear the viewport
+        ctx.clearRect(-offsetX, -offsetY, 1000,500);
+
+        offsetX = offsetX - 2;
+
+        // draw the player
+        ctx.fillStyle = 'red';
+
+        if (playerX < 0) {
+            playerX = 0;
+        }
+
+        if (playerY < 0) {
+            playerY = 0;
+        }
+
+        ctx.fillRect(playerX-offsetX, playerY-offsetY, 8, 8);
+
+        // draw the other stuff
+        var l = thingsOnMap.length;
+        for (var i = 0; i < l; i++) {
+            // we should really only draw the things that intersect the viewport!
+            // but I am lazy so we are drawing everything here
+            var x = thingsOnMap[i][0];
+            var y = thingsOnMap[i][1];
+
+            if (x > 0) {
+
+                
+
+                if( intersectRect(y, y+8, x, x+8, playerY, playerY + 8, playerX, playerX + 8) ) {
+                    alert("Hit!");
+                }
+
+                ctx.fillStyle = 'green';
+                ctx.fillRect(x, y, 8, 8);
+                ctx.fillStyle = 'black';
+                ctx.fillText(x + ', ' + y, x, y); // just to show where we are drawing these things
+            }
+        }
+
+        ctx.restore();
+    }
+
+    can.addEventListener('keydown', function(e) {
+        if (e.keyCode === 37) { // left
+            playerX--;
+        } else if (e.keyCode === 39) { // right
+            playerX++;
+        } else if (e.keyCode === 40) { // down
+            playerY++;
+        } else if (e.keyCode === 38) { // up
+            playerY--;
+        }
+        draw();
+    }, false);
+
+    draw();
+</script>
+</html>
