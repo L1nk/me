@@ -52,13 +52,6 @@
     var offsetX = 0;
     var offsetY = 0;
 
-    function intersectRect(r1_top, r1_bottom, r1_left, r1_right, r2_top, r2_bottom, r2_left, r2_right) {
-        return !(r2_left > r1_right ||
-        r2_right < r1_left ||
-        r2_top > r1_bottom ||
-        r2_bottom < r1_top);
-    }
-
     function draw() {
         ctx.save();
         ctx.translate(offsetX, offsetY);
@@ -89,13 +82,6 @@
             var y = thingsOnMap[i][1];
 
             if (x > 0) {
-
-                
-
-                if( intersectRect(y, y+8, x, x+8, playerY, playerY + 8, playerX, playerX + 8) ) {
-                    alert("Hit!");
-                }
-
                 ctx.fillStyle = 'green';
                 ctx.fillRect(x, y, 8, 8);
                 ctx.fillStyle = 'black';
@@ -105,6 +91,37 @@
 
         ctx.restore();
     }
+
+    onkeydown = onkeyup = function(e){
+        e = e || event; // to deal with IE
+        map[e.keyCode] = e.type == 'keydown';
+        /*insert conditional here*/
+
+        if(map[37] && map[40]) { // left and down
+            playerX--;
+            playerY++;
+        } else if(map[37] && map[38]) { // left and up
+            playerX--;
+            playerY--;
+        } else if(map[39] && map[40]) { // right and down
+            playerX++;
+            playerY++;
+        } else if(map[39] && map[38]) { // right and up
+            playerX++;
+            playerY--;
+        } else if (map[37]) { // left
+            playerX--;
+        } else if (map[39]) { // right
+            playerX++;
+        } else if (map[40]) { // down
+            playerY++;
+        } else if (map[38]) { // up
+            playerY--;
+        }
+
+        draw();
+
+    };
 
     can.addEventListener('keydown', function(e) {
         if (e.keyCode === 37) { // left
