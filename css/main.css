@@ -312,10 +312,15 @@ textarea {
 
 @font-face {
   font-family: 'tlpsmb';
-  src: url('tlpsmb.eot?') format('eot'), url('tlpsmb.woff') format('woff'), url('tlpsmb.ttf') format('truetype');
+  src: url('tlpsmb.eot') format('eot'), url('tlpsmb.woff') format('woff'), url('tlpsmb.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'patriot';
   src: url('Pentagon.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'socal';
+  src: url('cs.ttf') format('truetype'), url('cs.woff') format('woff');
 }
