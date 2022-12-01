@@ -324,3 +324,8 @@ textarea {
   font-family: 'socal';
   src: url('cs.ttf') format('truetype'), url('cs.woff') format('woff');
 }
+
+@font-face {
+  font-family: 'xmas';
+  src: url('xmas.ttf') format('truetype'), url('xmas.woff') format('woff'), src: url('xmas.eot') format('eot');
+}
