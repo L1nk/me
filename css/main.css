@@ -327,5 +327,5 @@ textarea {
 
 @font-face {
   font-family: 'xmas';
-  src: url('xmas.ttf') format('truetype'), url('xmas.woff') format('woff'), src: url('xmas.eot') format('eot');
+  src: url('xmas.ttf') format('truetype');
 }
